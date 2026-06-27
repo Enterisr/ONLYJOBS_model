@@ -1,0 +1,23 @@
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+
+# Large model artifacts — too big for git
+model_output/onnx/
+model_output/pytorch_model/
+model_output/tokenizer/
+*.safetensors
+*.onnx
+
+# Keep: classifier.json (small weights for extension) and plots
+# model_output/classifier.json  ← committed
+# model_output/plots/           ← committed
+
+# Misc
+.claude/
+ANLP*.pdf
+*.pdf

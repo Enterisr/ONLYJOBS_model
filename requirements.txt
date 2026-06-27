@@ -1,0 +1,11 @@
+torch>=2.1
+transformers>=4.46
+optimum[exporters]>=1.19
+onnx>=1.15
+onnxruntime>=1.17
+scikit-learn>=1.3
+pandas
+numpy
+sentencepiece
+protobuf
+matplotlib>=3.8
