@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy – LinkedIn Job Filter</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+           max-width: 680px; margin: 48px auto; padding: 0 24px; color: #333; line-height: 1.7; }
+    h1 { font-size: 24px; color: #0a66c2; }
+    h2 { font-size: 16px; margin-top: 32px; }
+    p, li { font-size: 15px; }
+    ul { padding-left: 20px; }
+    footer { margin-top: 48px; font-size: 13px; color: #888; }
+  </style>
+</head>
+<body>
+  <h1>Privacy Policy – LinkedIn Job Filter</h1>
+  <p><em>Last updated: June 2025</em></p>
+
+  <h2>What this extension does</h2>
+  <p>
+    LinkedIn Job Filter reads the text of posts in your LinkedIn feed, classifies each post
+    as a job listing or not, and replaces non-job posts with a random photo of a dog or cat.
+  </p>
+
+  <h2>Data we collect</h2>
+  <p><strong>None.</strong> The extension does not collect, store, or transmit any personal data.</p>
+  <ul>
+    <li>Post text is read locally in your browser and passed to an on-device AI model. It never leaves your device.</li>
+    <li>No analytics, tracking pixels, or telemetry of any kind are included.</li>
+    <li>Nothing is written to any server we control.</li>
+  </ul>
+
+  <h2>Third-party network requests</h2>
+  <p>The extension makes requests to three external services:</p>
+  <ul>
+    <li>
+      <strong>Hugging Face (huggingface.co)</strong> — downloads the AI model the first time you use the extension.
+      The model is then cached in your browser and subsequent uses are fully offline.
+      No identifying information is sent.
+    </li>
+    <li>
+      <strong>Dog CEO API (dog.ceo)</strong> — fetches random dog photos to replace non-job posts.
+      No personal data is sent; only a plain GET request for a random image URL.
+    </li>
+    <li>
+      <strong>The Cat API (thecatapi.com)</strong> — fetches random cat photos for the same purpose.
+      Same as above — no personal data is sent.
+    </li>
+  </ul>
+
+  <h2>Permissions explained</h2>
+  <ul>
+    <li><strong>linkedin.com</strong> — required to read and modify your feed.</li>
+    <li><strong>offscreen</strong> — required to run the AI model in a background browser context.</li>
+    <li><strong>storage</strong> — reserved for future settings (e.g. on/off toggle); nothing is currently stored.</li>
+  </ul>
+
+  <h2>Children's privacy</h2>
+  <p>This extension is not directed at children under 13 and does not knowingly collect any information from them.</p>
+
+  <h2>Changes to this policy</h2>
+  <p>If we make material changes we will update the "Last updated" date above.</p>
+
+  <h2>Contact</h2>
+  <p>Questions? Open an issue on <a href="https://github.com/Enterisr/ONLYJOBS_model">GitHub</a>.</p>
+
+  <footer>LinkedIn Job Filter is an independent project and is not affiliated with LinkedIn Corporation.</footer>
+</body>
+</html>
