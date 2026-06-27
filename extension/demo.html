@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>LinkedIn Job Filter – Demo</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #f3f2ef; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    .feed { max-width: 600px; margin: 32px auto; display: flex; flex-direction: column; gap: 12px; }
+    h1 { text-align: center; font-size: 18px; color: #555; margin-bottom: 4px; }
+    p.hint { text-align: center; font-size: 13px; color: #888; margin-bottom: 16px; }
+
+    [componentkey] {
+      background: #fff;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 16px;
+    }
+    .author { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+    .avatar { width: 48px; height: 48px; border-radius: 50%; background: #0a66c2; color: #fff;
+              display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 18px; flex-shrink: 0; }
+    .name { font-weight: 600; font-size: 14px; color: #000; }
+    .meta { font-size: 12px; color: #666; }
+    .text { font-size: 14px; color: #333; line-height: 1.5; }
+    .label { display: inline-block; margin-top: 8px; font-size: 11px; font-weight: 600;
+             padding: 2px 7px; border-radius: 4px; }
+    .label.job { background: #e8f4e8; color: #2e7d32; }
+    .label.not-job { background: #fce8e8; color: #c62828; }
+  </style>
+</head>
+<body>
+<div class="feed">
+  <h1>LinkedIn Job Filter — Demo Feed</h1>
+  <p class="hint">Posts tagged <span style="color:#c62828">NOT JOB</span> should be hidden by the extension. <span style="color:#2e7d32">JOB</span> posts should stay visible.</p>
+
+  <!-- NOT JOB -->
+  <div componentkey="feed-commentary_urn:li:activity:1001">
+    <div class="author"><div class="avatar">A</div><div><div class="name">Amit Cohen</div><div class="meta">Product Manager · 2h</div></div></div>
+    <div class="text">Just finished reading "The Lean Startup" for the third time. Every read I pick up something new. Highly recommend to anyone building a product from scratch. What's your go-to book for product thinking? 📚</div>
+    <span class="label not-job">NOT JOB (expected: hidden)</span>
+  </div>
+
+  <!-- JOB -->
+  <div componentkey="feed-commentary_urn:li:activity:1002">
+    <div class="author"><div class="avatar">T</div><div><div class="name">TechCorp Recruiting</div><div class="meta">Company · 1h</div></div></div>
+    <div class="text">🚀 We're hiring a Senior Backend Engineer to join our infrastructure team in Tel Aviv!
+
+Requirements:
+• 5+ years of experience with Python or Go
+• Strong background in distributed systems
+• Experience with Kubernetes and AWS
+
+Competitive salary, equity, and full remote option. Send your CV to careers@techcorp.io or apply via the link below. 👇</div>
+    <span class="label job">JOB (expected: visible)</span>
+  </div>
+
+  <!-- NOT JOB -->
+  <div componentkey="feed-commentary_urn:li:activity:1003">
+    <div class="author"><div class="avatar">S</div><div><div class="name">Sara Levi</div><div class="meta">UX Designer · 5h</div></div></div>
+    <div class="text">Hot take: most dashboards have too many charts. Users don't need 20 graphs — they need one clear answer. Design is about removing, not adding. Agree? 🤔</div>
+    <span class="label not-job">NOT JOB (expected: hidden)</span>
+  </div>
+
+  <!-- JOB -->
+  <div componentkey="feed-commentary_urn:li:activity:1004">
+    <div class="author"><div class="avatar">G</div><div><div class="name">Google Israel</div><div class="meta">Company · 3h</div></div></div>
+    <div class="text">We are looking for a talented Data Scientist to join our Ads team in Tel Aviv.
+
+The role involves building ML models at scale, working with petabytes of data, and collaborating with world-class engineers.
+
+Minimum qualifications:
+- MS or PhD in a quantitative field
+- 3+ years of industry ML experience
+- Proficiency in Python and SQL
+
+Apply here: [link] #hiring #datascience #machinelearning</div>
+    <span class="label job">JOB (expected: visible)</span>
+  </div>
+
+  <!-- NOT JOB -->
+  <div componentkey="feed-commentary_urn:li:activity:1005">
+    <div class="author"><div class="avatar">D</div><div><div class="name">Dan Miller</div><div class="meta">CTO · 8h</div></div></div>
+    <div class="text">Attended the AI Summit in Tel Aviv yesterday. The amount of innovation happening in this ecosystem is truly inspiring. Met so many brilliant founders solving real problems. The future is being built right here. 🇮🇱</div>
+    <span class="label not-job">NOT JOB (expected: hidden)</span>
+  </div>
+
+  <!-- JOB -->
+  <div componentkey="feed-commentary_urn:li:activity:1006">
+    <div class="author"><div class="avatar">M</div><div><div class="name">Mobileye</div><div class="meta">Company · 30m</div></div></div>
+    <div class="text">📢 Open Position: Embedded Software Engineer – Autonomous Driving
+
+Join our team working on the next generation of self-driving technology.
+
+What you'll do:
+- Develop real-time software for ADAS systems
+- Optimize code for performance-critical environments
+- Work closely with hardware and algorithm teams
+
+Location: Jerusalem, Israel (hybrid)
+Experience: 3-7 years in C/C++
+
+DM me or visit our careers page to apply! #Mobileye #Hiring #EmbeddedSystems</div>
+    <span class="label job">JOB (expected: visible)</span>
+  </div>
+
+  <!-- NOT JOB -->
+  <div componentkey="feed-commentary_urn:li:activity:1007">
+    <div class="author"><div class="avatar">R</div><div><div class="name">Rachel Green</div><div class="meta">Startup Founder · 12h</div></div></div>
+    <div class="text">We just crossed 10,000 users! 🎉 Eighteen months of building, iterating, and listening to customers. Thank you to our amazing team and early adopters who believed in us from day one. The journey continues. 💪</div>
+    <span class="label not-job">NOT JOB (expected: hidden)</span>
+  </div>
+
+  <!-- JOB -->
+  <div componentkey="feed-commentary_urn:li:activity:1008">
+    <div class="author"><div class="avatar">W</div><div><div class="name">Wix Engineering</div><div class="meta">Company · 2h</div></div></div>
+    <div class="text">We're expanding our Frontend Guild and looking for a React Tech Lead to drive our web platform forward.
+
+This is a leadership role — you'll mentor engineers, own architectural decisions, and ship features used by millions of users.
+
+Requirements:
+✅ 6+ years of frontend development
+✅ Deep expertise in React & TypeScript
+✅ Experience leading engineering teams
+
+Tel Aviv office | Hybrid | Senior compensation package
+
+Apply: wix.com/careers or tag someone great 👇</div>
+    <span class="label job">JOB (expected: visible)</span>
+  </div>
+
+</div>
+</body>
+</html>
