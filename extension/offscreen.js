@@ -75,4 +75,32 @@ async function isJob(text) {
   await init();
   const inputs = tokenizer(text.slice(0, 1500), {
     truncation: true,
-    max_length: 51
+    max_length: 512,
+    padding: true,
+  });
+  const output = await model(inputs);
+  const emb = meanPool(output.last_hidden_state, inputs.attention_mask);
+  const proj = applyProjection(emb, clf);
+
+  // Logistic regression: coef · proj + intercept > 0 → class 1 (job)
+  const coef = clf.coef[0];
+  const intercept = clf.intercept[0];
+  let score = intercept;
+  for (let i = 0; i < proj.length; i++) score += coef[i] * proj[i];
+  return score > 0;
+}
+
+chrome.runtime.onMessage.addListener((msg) => {
+  if (msg.type !== 'DO_CLASSIFY') return;
+  isJob(msg.text)
+    .then(result => chrome.runtime.sendMessage({
+      type: 'CLASSIFY_RESULT',
+      id: msg.id,
+      isJob: result,
+    }))
+    .catch(() => chrome.runtime.sendMessage({
+      type: 'CLASSIFY_RESULT',
+      id: msg.id,
+      isJob: true, // safe default: show post on error
+    }));
+});
